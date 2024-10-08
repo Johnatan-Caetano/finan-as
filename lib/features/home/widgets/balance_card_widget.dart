@@ -49,7 +49,7 @@ class _BalanceCardWidgetState extends State<BalanceCardWidget> {
           vertical: 32.h,
         ),
         decoration: const BoxDecoration(
-          color: AppColors.darkGreen,
+          color: Colors.black,
           borderRadius: BorderRadius.all(
             Radius.circular(16.0),
           ),
@@ -65,7 +65,7 @@ class _BalanceCardWidgetState extends State<BalanceCardWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Total Balance',
+                      'Saldo total',
                       textScaler: TextScaler.linear(textScaleFactor),
                       style: AppTextStyles.mediumText16w600
                           .apply(color: AppColors.white),
@@ -85,7 +85,7 @@ class _BalanceCardWidgetState extends State<BalanceCardWidget> {
                             constraints:
                                 BoxConstraints.tightFor(width: 250.0.w),
                             child: Text(
-                              '\$${widget.controller.balances.totalBalance.toStringAsFixed(2)}',
+                              'R\$${widget.controller.balances.totalBalance.toStringAsFixed(2)}',
                               textScaler: TextScaler.linear(textScaleFactor),
                               style: AppTextStyles.mediumText30
                                   .apply(color: AppColors.white),
@@ -197,7 +197,7 @@ class TransactionValueWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                type == TransactionType.income ? 'Income' : 'Expense',
+                type == TransactionType.income ? 'Receita' : 'Despesa',
                 textScaler: TextScaler.linear(textScaleFactor),
                 style: AppTextStyles.mediumText16w500
                     .apply(color: AppColors.white),
@@ -213,7 +213,7 @@ class TransactionValueWidget extends StatelessWidget {
                       );
                     }
                     return Text(
-                      '\$${amount.toStringAsFixed(2)}',
+                      'R\$${amount.toStringAsFixed(2)}',
                       textScaler: TextScaler.linear(textScaleFactor),
                       style: AppTextStyles.mediumText20
                           .apply(color: AppColors.white),

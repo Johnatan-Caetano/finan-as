@@ -6,8 +6,8 @@ class AppColors {
   static const Color greenOne = Color(0xFF438883);
   static const Color greenTwo = Color(0xFF63B5AF);
   static const List<Color> greenGradient = [
-    Color(0xFF63B5AF),
-    Color(0xFF438883),
+    Color(0xFF444444),
+    Color(0xFF666666),
   ];
   static const List<Color> greyGradient = [
     Color(0xFFB5B5B5),

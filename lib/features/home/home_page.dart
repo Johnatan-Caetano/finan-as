@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> with CustomModalSheetMixin {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'Transaction History',
+                        'Histórico de transações',
                         style: AppTextStyles.mediumText18,
                       ),
                       GestureDetector(
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> with CustomModalSheetMixin {
                               .navigateTo(BottomAppBarItem.wallet);
                         },
                         child: const Text(
-                          'See all',
+                          'Veja todos',
                           style: AppTextStyles.inputLabelText,
                         ),
                       ),
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> with CustomModalSheetMixin {
                       }
                       if (_homeController.state is HomeStateError) {
                         return const Center(
-                          child: Text('An error has occurred'),
+                          child: Text('Ocorreu um erro'),
                         );
                       }
 
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> with CustomModalSheetMixin {
                       }
 
                       return const Center(
-                        child: Text('There are no transactions at this time.'),
+                        child: Text('Não há transações neste momento.'),
                       );
                     },
                   ),

@@ -56,7 +56,7 @@ class CustomTextFormField extends StatefulWidget {
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   final defaultBorder = const OutlineInputBorder(
     borderSide: BorderSide(
-      color: AppColors.greenOne,
+      color: AppColors.darkGrey,
     ),
   );
 
@@ -102,7 +102,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           }
         },
         validator: widget.validator,
-        style: AppTextStyles.inputText.copyWith(color: AppColors.greenOne),
+        style: AppTextStyles.inputText.copyWith(color: AppColors.darkGrey),
         inputFormatters: widget.inputFormatters,
         obscureText: widget.obscureText ?? false,
         textInputAction: widget.textInputAction,

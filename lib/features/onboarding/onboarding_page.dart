@@ -9,7 +9,7 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.iceWhite,
+      backgroundColor: AppColors.antiFlashWhite,
       body: Column(
         children: [
           const SizedBox(height: 48.0),
@@ -19,17 +19,17 @@ class OnboardingPage extends StatelessWidget {
             ),
           ),
           Text(
-            'Spend Smarter',
+            'Gaste de forma inteligente',
             textAlign: TextAlign.center,
-            style: AppTextStyles.mediumText36.copyWith(
-              color: AppColors.greenOne,
+            style: AppTextStyles.mediumText30.copyWith(
+              color: AppColors.darkGrey,
             ),
           ),
           Text(
-            'Save More',
+            'Economize mais',
             textAlign: TextAlign.center,
-            style: AppTextStyles.mediumText36.copyWith(
-              color: AppColors.greenOne,
+            style: AppTextStyles.mediumText30.copyWith(
+              color: AppColors.darkGrey,
             ),
           ),
           Padding(
@@ -41,7 +41,7 @@ class OnboardingPage extends StatelessWidget {
             ),
             child: PrimaryButton(
               key: Keys.onboardingGetStartedButton,
-              text: 'Get Started',
+              text: 'Comece aqui',
               onPressed: () {
                 Navigator.pushNamed(
                   context,
@@ -55,15 +55,15 @@ class OnboardingPage extends StatelessWidget {
             onPressed: () => Navigator.pushNamed(context, NamedRoute.signIn),
             children: [
               Text(
-                'Already have account? ',
+                'Já possui uma conta? ',
                 style: AppTextStyles.smallText.copyWith(
                   color: AppColors.grey,
                 ),
               ),
               Text(
-                'Sign In ',
+                'Entre aqui ',
                 style: AppTextStyles.smallText.copyWith(
-                  color: AppColors.greenOne,
+                  color: AppColors.darkGreen,
                 ),
               ),
             ],

@@ -24,13 +24,7 @@ class PrimaryButton extends StatelessWidget {
         height: 48.0,
         decoration: BoxDecoration(
           borderRadius: _borderRadius,
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: onPressed != null
-                ? AppColors.greenGradient
-                : AppColors.greyGradient,
-          ),
+          color: AppColors.darkGrey
         ),
         child: InkWell(
           borderRadius: _borderRadius,

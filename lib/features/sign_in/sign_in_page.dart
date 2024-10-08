@@ -81,7 +81,7 @@ class _SignInPageState extends State<SignInPage> with CustomModalSheetMixin {
         showCustomModalBottomSheet(
           context: context,
           content: (_syncController.state as SyncStateError).message,
-          buttonText: "Try again",
+          buttonText: "Tente novamente",
           onPressed: () => Navigator.pushNamedAndRemoveUntil(
             context,
             NamedRoute.signIn,
@@ -101,92 +101,98 @@ class _SignInPageState extends State<SignInPage> with CustomModalSheetMixin {
         password: _passwordController.text,
       );
     } else {
-      log("erro ao logar");
+      log("Erro ao logar");
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        key: Keys.signInListView,
-        children: [
-          Text(
-            'Welcome Back!',
-            textAlign: TextAlign.center,
-            style: AppTextStyles.mediumText36.copyWith(
-              color: AppColors.greenOne,
-            ),
-          ),
-          Image.asset(
-            'assets/images/sign_in_image.png',
-          ),
-          Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                CustomTextFormField(
-                  key: Keys.signInEmailField,
-                  controller: _emailController,
-                  labelText: "your email",
-                  hintText: "john@email.com",
-                  validator: Validator.validateEmail,
-                ),
-                PasswordFormField(
-                  key: Keys.signInPasswordField,
-                  controller: _passwordController,
-                  labelText: "your password",
-                  hintText: "*********",
-                  validator: Validator.validatePassword,
-                  onEditingComplete: _onSignInButtonPressed,
-                ),
-              ],
-            ),
-          ),
-          TextButton(
-            key: Keys.forgotPasswordButton,
-            onPressed: () => Navigator.popAndPushNamed(
-              context,
-              NamedRoute.forgotPassword,
-            ),
-            child: const Text('Forgot Password?'),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 32.0,
-              right: 32.0,
-              top: 16.0,
-              bottom: 4.0,
-            ),
-            child: PrimaryButton(
-              key: Keys.signInButton,
-              text: 'Sign In',
-              onPressed: _onSignInButtonPressed,
-            ),
-          ),
-          MultiTextButton(
-            key: Keys.signInDontHaveAccountButton,
-            onPressed: () => Navigator.popAndPushNamed(
-              context,
-              NamedRoute.signUp,
-            ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Don\'t have account? ',
-                style: AppTextStyles.smallText.copyWith(
-                  color: AppColors.grey,
+                'Bem vindo novamente!',
+                textAlign: TextAlign.center,
+                style: AppTextStyles.mediumText30.copyWith(
+                  color: Colors.black,
                 ),
               ),
-              Text(
-                'Sign Up',
-                style: AppTextStyles.smallText.copyWith(
-                  color: AppColors.greenOne,
+              Image.asset(
+                'assets/images/sign_in_image.png',
+              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    CustomTextFormField(
+                      key: Keys.signInEmailField,
+                      controller: _emailController,
+                      labelText: "Email",
+                      hintText: "john@email.com",
+                      validator: Validator.validateEmail,
+                    ),
+                    PasswordFormField(
+                      key: Keys.signInPasswordField,
+                      controller: _passwordController,
+                      labelText: "Senha",
+                      hintText: "*********",
+                      validator: Validator.validatePassword,
+                      onEditingComplete: _onSignInButtonPressed,
+                    ),
+                  ],
                 ),
+              ),
+              TextButton(
+                key: Keys.forgotPasswordButton,
+                onPressed: () => Navigator.popAndPushNamed(
+                  context,
+                  NamedRoute.forgotPassword,
+                ),
+                child: const Text('Esqueci a senha'),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 32.0,
+                  right: 32.0,
+                  top: 16.0,
+                  bottom: 4.0,
+                ),
+                child: PrimaryButton(
+                  key: Keys.signInButton,
+                  text: 'Entrar',
+                  onPressed: _onSignInButtonPressed,
+                ),
+              ),
+              MultiTextButton(
+                key: Keys.signInDontHaveAccountButton,
+                onPressed: () => Navigator.popAndPushNamed(
+                  context,
+                  NamedRoute.signUp,
+                ),
+                children: [
+                  Text(
+                    'Não possui uma conta? ',
+                    style: AppTextStyles.smallText.copyWith(
+                      color: AppColors.grey,
+                    ),
+                  ),
+                  Text(
+                    'Crie uma aqui',
+                    style: AppTextStyles.smallText.copyWith(
+                      color: AppColors.greenOne,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
+
 }
