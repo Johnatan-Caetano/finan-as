@@ -155,9 +155,9 @@ class ConnectionException extends Failure {
   String get message {
     switch (code) {
       case 'connection-error':
-        return 'It was not possible to connect to the remote server. Please check you connection and try again.';
+        return 'Não foi possível conectar ao servidor remoto. Verifique sua conexão e tente novamente.';
       default:
-        return 'An internal error ocurred. Please try again later.';
+        return 'Ocorreu um erro interno. Tente novamente mais tarde.';
     }
   }
 }
@@ -170,9 +170,9 @@ class SyncException extends Failure {
   String get message {
     switch (code) {
       case 'error':
-        return 'Error while syncing. Please restart the app or relogin.';
+        return 'Erro ao sincronizar. Reinicie o aplicativo ou faça login novamente.';
       default:
-        return 'unkown error';
+        return 'Erro desconhecido';
     }
   }
 }

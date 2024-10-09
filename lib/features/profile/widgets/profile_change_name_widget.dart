@@ -64,7 +64,7 @@ class _ProfileChangeNameWidgetState extends State<ProfileChangeNameWidget>
             inputFormatters: [UpperCaseTextInputFormatter()],
             controller: _textEditingController,
             focusNode: _focusNode,
-            labelText: 'New name',
+            labelText: 'Novo nome',
             onTapOutside: (_) => _focusNode.unfocus(),
             validator: (_) =>
                 Validator.validateName(_textEditingController.text),
@@ -84,7 +84,7 @@ class _ProfileChangeNameWidgetState extends State<ProfileChangeNameWidget>
                   widget._profileController.toggleButtonTap(false);
                 },
                 child: Text(
-                  'Cancel',
+                  'Cancelar',
                   style: AppTextStyles.mediumText16w500
                       .apply(color: AppColors.green),
                 ),
@@ -97,7 +97,7 @@ class _ProfileChangeNameWidgetState extends State<ProfileChangeNameWidget>
                     ? onNewNameSavePressed
                     : null,
                 child: Text(
-                  'Save',
+                  'Salvar',
                   style: AppTextStyles.mediumText16w500
                       .apply(color: AppColors.green),
                 ),

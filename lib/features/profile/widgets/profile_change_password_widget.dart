@@ -62,7 +62,7 @@ class _ProfileChangePasswordWidgetState
           child: PasswordFormField(
             controller: _textEditingController,
             focusNode: _focusNode,
-            labelText: 'New password',
+            labelText: 'Nova Senha',
             onTapOutside: (_) => _focusNode.unfocus(),
             validator: (_) =>
                 Validator.validatePassword(_textEditingController.text),
@@ -82,7 +82,7 @@ class _ProfileChangePasswordWidgetState
                   widget._profileController.toggleButtonTap(false);
                 },
                 child: Text(
-                  'Cancel',
+                  'Cancelar',
                   style: AppTextStyles.mediumText16w500
                       .apply(color: AppColors.green),
                 ),
@@ -95,7 +95,7 @@ class _ProfileChangePasswordWidgetState
                     ? onNewPasswordSavePressed
                     : null,
                 child: Text(
-                  'Save',
+                  'Salvar',
                   style: AppTextStyles.mediumText16w500
                       .apply(color: AppColors.green),
                 ),

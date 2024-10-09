@@ -67,7 +67,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
           context: context,
           content: (_forgotPasswordController.state as ForgotPasswordStateError)
               .message,
-          buttonText: "Try again",
+          buttonText: "Tente novamente",
           onPressed: () => Navigator.pop(context),
         );
         break;
@@ -86,7 +86,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
         child: ListView(
           children: [
             Text(
-              'Reset Your\nPassword',
+              'Redefinir sua\nSenha',
               textAlign: TextAlign.center,
               style: AppTextStyles.mediumText36.copyWith(
                 color: AppColors.greenOne,
@@ -94,7 +94,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
             ),
             Image.asset('assets/images/forgot_password_image.png'),
             Text(
-              'Enter your email address and a link will be sent to reset your password.',
+              'Digite seu endereço de e-mail e um link será enviado para redefinir sua senha.',
               style: AppTextStyles.mediumText16w500
                   .apply(color: AppColors.darkGrey),
               textAlign: TextAlign.center,
@@ -107,7 +107,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                   key: Keys.forgotPasswordEmailField,
                   padding: EdgeInsets.zero,
                   controller: _emailController,
-                  labelText: "your email",
+                  labelText: "Seu e-mail",
                   hintText: "john@email.com",
                   validator: Validator.validateEmail,
                 ),
@@ -115,7 +115,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
             ),
             PrimaryButton(
               key: Keys.forgotPasswordSendLinkButton,
-              text: 'Send Link',
+              text: 'Enviar link',
               onPressed: _onSendLinkButtonPressed,
             ),
             MultiTextButton(
@@ -126,13 +126,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
               ),
               children: [
                 Text(
-                  'Don\'t have account? ',
+                  'Não tem conta?',
                   style: AppTextStyles.smallText.copyWith(
                     color: AppColors.grey,
                   ),
                 ),
                 Text(
-                  'Sign Up',
+                  'Inscrever-se',
                   style: AppTextStyles.smallText.copyWith(
                     color: AppColors.greenOne,
                   ),

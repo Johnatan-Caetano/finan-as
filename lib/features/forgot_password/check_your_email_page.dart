@@ -16,7 +16,7 @@ class CheckYourEmailPage extends StatelessWidget {
         child: ListView(
           children: [
             Text(
-              'Reset Your\nPassword',
+              'Redefinir sua\nSenha',
               textAlign: TextAlign.center,
               style: AppTextStyles.mediumText36.copyWith(
                 color: AppColors.greenOne,
@@ -26,7 +26,7 @@ class CheckYourEmailPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Text(
-                "All set! Follow the instructions on your email to reset your password. Don't forget to check the spam box!",
+                "Tudo pronto! Siga as instruções no seu e-mail para redefinir sua senha. Não esqueça de verificar a caixa de spam!",
                 textAlign: TextAlign.center,
                 style: AppTextStyles.mediumText16w500.copyWith(
                   color: AppColors.darkGrey,
