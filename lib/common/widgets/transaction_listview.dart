@@ -20,7 +20,6 @@ class TransactionListView extends StatefulWidget {
   final List<TransactionModel> transactionList;
   final DateTime? selectedDate;
 
-  ///Called when transaction is updated or deleted
   final VoidCallback onChange;
 
   @override
@@ -74,7 +73,7 @@ class _TransactionListViewState extends State<TransactionListView>
         if (widget.transactionList.isEmpty)
           const SliverFillRemaining(
             child: Center(
-              child: Text('There are no transactions in this period.'),
+              child: Text('Não há transações neste período.'),
             ),
           ),
         SliverList(
@@ -86,7 +85,7 @@ class _TransactionListViewState extends State<TransactionListView>
               final color =
                   item.value.isNegative ? AppColors.outcome : AppColors.income;
 
-              final value = "\$${item.value.toStringAsFixed(2)}";
+              final value = "R\$${item.value.toStringAsFixed(2)}";
 
               return Dismissible(
                 key: UniqueKey(),
@@ -114,18 +113,18 @@ class _TransactionListViewState extends State<TransactionListView>
                 confirmDismiss: (direction) async {
                   confirmDelete = await showCustomModalBottomSheet(
                     context: context,
-                    content: 'Confirm delete transaction',
+                    content: 'Confirmar exclusão da transação',
                     actions: [
                       Flexible(
                         child: PrimaryButton(
-                          text: 'Cancel',
+                          text: 'Cancelar',
                           onPressed: () => Navigator.pop(context),
                         ),
                       ),
                       const SizedBox(width: 16.0),
                       Flexible(
                         child: PrimaryButton(
-                          text: 'Confirm',
+                          text: 'Confirmar',
                           onPressed: () => Navigator.pop(context, true),
                         ),
                       ),
@@ -173,7 +172,7 @@ class _TransactionListViewState extends State<TransactionListView>
                         style: AppTextStyles.mediumText18.apply(color: color),
                       ),
                       Text(
-                        item.status ? 'done' : 'pending',
+                        item.status ? 'feito' : 'pendente',
                         style: AppTextStyles.smallText13
                             .apply(color: AppColors.lightGrey),
                       ),

@@ -48,9 +48,9 @@ void main() {
             startDate: any(named: 'startDate'), endDate: any(named: 'endDate')),
       ).thenAnswer((_) async => DataResult.success(transactions));
 
-      await sut.getTrasactionsByPeriod(period: StatsPeriod.day);
+      await sut.getTrasactionsByPeriod(period: StatsPeriod.dia);
 
-      expect(sut.selectedPeriod, StatsPeriod.day);
+      expect(sut.selectedPeriod, StatsPeriod.dia);
       expect(sut.transactions, isNotEmpty);
       expect(sut.valueSpots, isNotEmpty);
       expect(sut.minY, 0);
@@ -66,9 +66,9 @@ void main() {
               endDate: any(named: 'endDate')))
           .thenAnswer((_) async => DataResult.success(transactions));
 
-      await sut.getTrasactionsByPeriod(period: StatsPeriod.week);
+      await sut.getTrasactionsByPeriod(period: StatsPeriod.semana);
 
-      expect(sut.selectedPeriod, StatsPeriod.week);
+      expect(sut.selectedPeriod, StatsPeriod.semana);
       expect(sut.transactions, isNotEmpty);
       expect(sut.valueSpots, isNotEmpty);
       expect(sut.minY, 0);
@@ -84,9 +84,9 @@ void main() {
               endDate: any(named: 'endDate')))
           .thenAnswer((_) async => DataResult.success(transactions));
 
-      await sut.getTrasactionsByPeriod(period: StatsPeriod.month);
+      await sut.getTrasactionsByPeriod(period: StatsPeriod.mes);
 
-      expect(sut.selectedPeriod, StatsPeriod.month);
+      expect(sut.selectedPeriod, StatsPeriod.mes);
       expect(sut.transactions, isNotEmpty);
       expect(sut.valueSpots, isNotEmpty);
       expect(sut.minY, 0);
@@ -102,9 +102,9 @@ void main() {
               endDate: any(named: 'endDate')))
           .thenAnswer((_) async => DataResult.success(transactions));
 
-      await sut.getTrasactionsByPeriod(period: StatsPeriod.year);
+      await sut.getTrasactionsByPeriod(period: StatsPeriod.ano);
 
-      expect(sut.selectedPeriod, StatsPeriod.year);
+      expect(sut.selectedPeriod, StatsPeriod.ano);
       expect(sut.transactions, isNotEmpty);
       expect(sut.valueSpots, isNotEmpty);
       expect(sut.minY, 0);

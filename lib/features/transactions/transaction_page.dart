@@ -30,8 +30,8 @@ class _TransactionPageState extends State<TransactionPage>
 
   final _formKey = GlobalKey<FormState>();
 
-  final _incomes = ['Services', 'Investment', 'Other'];
-  final _outcomes = ['House', 'Grocery', 'Other'];
+  final _incomes = ['Serviços', 'Investimentos', 'Outros'];
+  final _outcomes = ['Casa', 'Mercado', 'Outros'];
 
   DateTime? _newDate;
   bool value = false;
@@ -39,7 +39,7 @@ class _TransactionPageState extends State<TransactionPage>
   final _descriptionController = TextEditingController();
   final _categoryController = TextEditingController();
   final _dateController = TextEditingController();
-  final _amountController = MoneyMaskedTextController(prefix: '\$');
+  final _amountController = MoneyMaskedTextController(prefix: 'R\$');
 
   late final TabController _tabController;
 
@@ -129,8 +129,8 @@ class _TransactionPageState extends State<TransactionPage>
           AppHeader(
             preffixOption: true,
             title: widget.transaction != null
-                ? 'Edit Transaction'
-                : 'Add Transaction',
+                ? 'Editar Transação'
+                : 'Adicionar Transação',
           ),
           Positioned(
             top: 164.h,
@@ -176,7 +176,7 @@ class _TransactionPageState extends State<TransactionPage>
                                     ),
                                   ),
                                   child: Text(
-                                    'Income',
+                                    'Renda',
                                     style: AppTextStyles.mediumText16w500
                                         .apply(color: AppColors.darkGrey),
                                   ),
@@ -194,7 +194,7 @@ class _TransactionPageState extends State<TransactionPage>
                                     ),
                                   ),
                                   child: Text(
-                                    'Expense',
+                                    'Despesa',
                                     style: AppTextStyles.mediumText16w500
                                         .apply(color: AppColors.darkGrey),
                                   ),
@@ -209,7 +209,7 @@ class _TransactionPageState extends State<TransactionPage>
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         controller: _amountController,
                         keyboardType: TextInputType.number,
-                        labelText: "Amount",
+                        labelText: "Quantia",
                         hintText: "Type an amount",
                         suffixIcon: StatefulBuilder(
                           builder: (context, setState) {
@@ -234,11 +234,11 @@ class _TransactionPageState extends State<TransactionPage>
                       CustomTextFormField(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         controller: _descriptionController,
-                        labelText: 'Description',
-                        hintText: 'Add a description',
+                        labelText: 'Descrição',
+                        hintText: 'Adicione uma descrição',
                         validator: (value) {
                           if (_descriptionController.text.isEmpty) {
-                            return 'This field cannot be empty.';
+                            return 'Este campo não pode estar vazio.';
                           }
                           return null;
                         },
@@ -247,11 +247,11 @@ class _TransactionPageState extends State<TransactionPage>
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         controller: _categoryController,
                         readOnly: true,
-                        labelText: "Category",
-                        hintText: "Select a category",
+                        labelText: "Categoria",
+                        hintText: "Selecione uma categoria",
                         validator: (value) {
                           if (_categoryController.text.isEmpty) {
-                            return 'This field cannot be empty.';
+                            return 'Este campo não pode estar vazio.';
                           }
                           return null;
                         },
@@ -281,11 +281,11 @@ class _TransactionPageState extends State<TransactionPage>
                         controller: _dateController,
                         readOnly: true,
                         suffixIcon: const Icon(Icons.calendar_month_outlined),
-                        labelText: "Date",
-                        hintText: "Select a date",
+                        labelText: "Data",
+                        hintText: "Selecione uma data",
                         validator: (value) {
                           if (_dateController.text.isEmpty) {
-                            return 'This field cannot be empty.';
+                            return 'Este campo não pode estar vazio.';
                           }
                           return null;
                         },
@@ -313,13 +313,13 @@ class _TransactionPageState extends State<TransactionPage>
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
                         child: PrimaryButton(
-                          text: widget.transaction != null ? 'Save' : 'Add',
+                          text: widget.transaction != null ? 'Salvar' : 'Adicionar',
                           onPressed: () async {
                             FocusScope.of(context).unfocus();
                             if (_formKey.currentState!.validate()) {
                               final newValue = double.parse(_amountController
                                   .text
-                                  .replaceAll('\$', '')
+                                  .replaceAll('R\$', '')
                                   .replaceAll('.', '')
                                   .replaceAll(',', '.'));
 
@@ -363,7 +363,7 @@ class _TransactionPageState extends State<TransactionPage>
                                 }
                               }
                             } else {
-                              log('invalid');
+                              log('inválido');
                             }
                           },
                         ),

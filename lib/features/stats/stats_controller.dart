@@ -7,7 +7,7 @@ import '../../common/models/models.dart';
 import '../../repositories/repositories.dart';
 import 'stats_state.dart';
 
-enum StatsPeriod { day, week, month, year }
+enum StatsPeriod { dia, semana, mes, ano }
 
 class StatsController extends ChangeNotifier {
   StatsController({
@@ -36,13 +36,13 @@ class StatsController extends ChangeNotifier {
   /// Used to set chart interval by [selectedPeriod]
   double get interval {
     switch (selectedPeriod) {
-      case StatsPeriod.day:
+      case StatsPeriod.dia:
         return 4;
-      case StatsPeriod.week:
+      case StatsPeriod.semana:
         return 1;
-      case StatsPeriod.month:
+      case StatsPeriod.mes:
         return 1;
-      case StatsPeriod.year:
+      case StatsPeriod.ano:
         return 1;
     }
   }
@@ -69,7 +69,7 @@ class StatsController extends ChangeNotifier {
     _changeState(StatsStateSuccess());
   }
 
-  StatsPeriod _selectedPeriod = StatsPeriod.month;
+  StatsPeriod _selectedPeriod = StatsPeriod.mes;
   StatsPeriod get selectedPeriod => _selectedPeriod;
   Future<void> getTrasactionsByPeriod({StatsPeriod? period}) async {
     _selectedPeriod = period ?? selectedPeriod;
@@ -80,23 +80,23 @@ class StatsController extends ChangeNotifier {
     DateTime currentDate = DateTime.now();
 
     switch (selectedPeriod) {
-      case StatsPeriod.day:
+      case StatsPeriod.dia:
         start = DateTime(
             currentDate.year, currentDate.month, currentDate.day, 0, 0, 0);
         end = DateTime(
             currentDate.year, currentDate.month, currentDate.day, 23, 59, 59);
         break;
-      case StatsPeriod.week:
+      case StatsPeriod.semana:
         start = currentDate.subtract(Duration(days: currentDate.weekday - 1));
         start = DateTime(start.year, start.month, start.day, 0, 0, 0);
         end = start
             .add(const Duration(days: 6, hours: 23, minutes: 59, seconds: 59));
         break;
-      case StatsPeriod.month:
+      case StatsPeriod.mes:
         start = DateTime(currentDate.year, currentDate.month, 1, 0, 0, 0);
         end = DateTime(currentDate.year, currentDate.month + 1, 0, 23, 59, 59);
         break;
-      case StatsPeriod.year:
+      case StatsPeriod.ano:
         start = DateTime(currentDate.year, 1, 1, 0, 0, 0);
         end = DateTime(currentDate.year, 12, 31, 23, 59, 59);
         break;
@@ -121,19 +121,19 @@ class StatsController extends ChangeNotifier {
   String dayName(double day) {
     switch (day) {
       case 0:
-        return 'Mon';
+        return 'Seg';
       case 1:
-        return 'Tue';
+        return 'Ter';
       case 2:
-        return 'Wed';
+        return 'Qua';
       case 3:
-        return 'Thu';
+        return 'Qui';
       case 4:
-        return 'Fri';
+        return 'Sex';
       case 5:
-        return 'Sat';
+        return 'Sab';
       case 6:
-        return 'Sun';
+        return 'Dom';
       default:
         return '';
     }
@@ -144,27 +144,27 @@ class StatsController extends ChangeNotifier {
       case 0:
         return 'Jan';
       case 1:
-        return 'Feb';
+        return 'Fev';
       case 2:
         return 'Mar';
       case 3:
-        return 'Apr';
+        return 'Abr';
       case 4:
-        return 'May';
+        return 'Mai';
       case 5:
         return 'Jun';
       case 6:
         return 'Jul';
       case 7:
-        return 'Aug';
+        return 'Ago';
       case 8:
-        return 'Sep';
+        return 'Set';
       case 9:
-        return 'Oct';
+        return 'Out';
       case 10:
         return 'Nov';
       case 11:
-        return 'Dec';
+        return 'Dez';
       default:
         return '';
     }
@@ -175,19 +175,19 @@ class StatsController extends ChangeNotifier {
     bool Function(int, TransactionModel) groupingFunction;
 
     switch (selectedPeriod) {
-      case StatsPeriod.day:
+      case StatsPeriod.dia:
         groupingCount = hoursInDay;
         groupingFunction = _groupByHour;
         break;
-      case StatsPeriod.week:
+      case StatsPeriod.semana:
         groupingCount = daysInWeek;
         groupingFunction = _groupByDayOfWeek;
         break;
-      case StatsPeriod.month:
+      case StatsPeriod.mes:
         groupingCount = weeksInMonth;
         groupingFunction = _groupByWeekOfMonth;
         break;
-      case StatsPeriod.year:
+      case StatsPeriod.ano:
         groupingCount = monthsInYear;
         groupingFunction = _groupByMonth;
         break;

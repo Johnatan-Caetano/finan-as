@@ -42,7 +42,7 @@ class _StatsPageState extends State<StatsPage>
     return Scaffold(
       body: Stack(
         children: [
-          const AppHeader.noBackground(title: 'Statistics'),
+          const AppHeader.noBackground(title: 'Estatísticas'),
           Positioned(
             top: 150.h,
             left: 8.w,
@@ -117,7 +117,7 @@ class _StatsPageState extends State<StatsPage>
                                   getTooltipItems: (touchedSpots) {
                                     return touchedSpots.map((e) {
                                       return LineTooltipItem(
-                                        '\$${e.y.toStringAsFixed(2)}',
+                                        'R\$${e.y.toStringAsFixed(2)}',
                                         AppTextStyles.smallText.copyWith(
                                           color: AppColors.greenOne,
                                         ),
@@ -144,17 +144,17 @@ class _StatsPageState extends State<StatsPage>
                                       String text;
 
                                       switch (_statsController.selectedPeriod) {
-                                        case StatsPeriod.day:
+                                        case StatsPeriod.dia:
                                           text = '${value.toInt()}h';
 
-                                        case StatsPeriod.week:
+                                        case StatsPeriod.semana:
                                           text =
                                               _statsController.dayName(value);
 
-                                        case StatsPeriod.month:
+                                        case StatsPeriod.mes:
                                           text = 'W${(value + 1).toInt()}';
 
-                                        case StatsPeriod.year:
+                                        case StatsPeriod.ano:
                                           text =
                                               _statsController.monthName(value);
                                       }
@@ -207,7 +207,7 @@ class _StatsPageState extends State<StatsPage>
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'Top Transactions',
+                        'Principais transações',
                         style: AppTextStyles.mediumText18,
                       ),
                       GestureDetector(

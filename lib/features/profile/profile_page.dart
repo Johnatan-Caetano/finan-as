@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage>
           showCustomModalBottomSheet(
             context: context,
             content: (_profileController.state as ProfileStateError).message,
-            buttonText: 'Go to login',
+            buttonText: 'Ir para o login',
             isDismissible: false,
             onPressed: () => Navigator.pushNamedAndRemoveUntil(
               context,
@@ -74,14 +74,14 @@ class _ProfilePageState extends State<ProfilePage>
         if (_profileController.showNameUpdateMessage) {
           showCustomSnackBar(
             context: context,
-            text: 'Name updated successfully',
+            text: 'Nome atualizado com sucesso',
             type: SnackBarType.success,
           );
         }
         if (_profileController.showPasswordUpdateMessage) {
           showCustomSnackBar(
             context: context,
-            text: 'Password updated successfully',
+            text: 'Senha atualizada com sucesso',
             type: SnackBarType.success,
           );
         }
@@ -122,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage>
         showCustomModalBottomSheet(
           context: context,
           content: (_syncController.state as SyncStateError).message,
-          buttonText: "Try again",
+          buttonText: "Tentar novamente",
           onPressed: () => Navigator.of(context).pop(),
         );
         break;
@@ -136,7 +136,7 @@ class _ProfilePageState extends State<ProfilePage>
       body: Stack(
         children: [
           const AppHeader(
-            title: 'Profile',
+            title: 'Perfil',
           ),
           Positioned(
             top: 210.h,
@@ -219,7 +219,7 @@ class _ProfilePageState extends State<ProfilePage>
                                     label: Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Change name',
+                                        'Mudar nome',
                                         style: AppTextStyles.mediumText16w500
                                             .apply(color: AppColors.green),
                                         textAlign: TextAlign.start,
@@ -238,7 +238,7 @@ class _ProfilePageState extends State<ProfilePage>
                                     label: Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Change password',
+                                        'Mudar senha',
                                         style: AppTextStyles.mediumText16w500
                                             .apply(color: AppColors.green),
                                         textAlign: TextAlign.start,
@@ -262,7 +262,7 @@ class _ProfilePageState extends State<ProfilePage>
                                     label: Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Agreements',
+                                        'Acordos',
                                         style: AppTextStyles.mediumText16w500
                                             .apply(color: AppColors.green),
                                         textAlign: TextAlign.start,
@@ -274,8 +274,8 @@ class _ProfilePageState extends State<ProfilePage>
                                       showCustomModalBottomSheet(
                                         context: context,
                                         content:
-                                            'Are you sure you want to delete your account? This action cannot be undone.',
-                                        buttonText: 'Delete',
+                                            'Tem certeza de que deseja excluir sua conta? Esta ação não pode ser desfeita.',
+                                        buttonText: 'Excluir',
                                         onPressed: () async {
                                           Navigator.of(context).pop();
 
@@ -303,7 +303,7 @@ class _ProfilePageState extends State<ProfilePage>
                                     label: Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        'Delete account',
+                                        'Excluir conta',
                                         style: AppTextStyles.mediumText16w500
                                             .apply(color: AppColors.green),
                                         textAlign: TextAlign.start,

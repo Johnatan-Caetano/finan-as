@@ -10,6 +10,7 @@ import '../home/home_controller.dart';
 import 'wallet_controller.dart';
 import 'wallet_state.dart';
 
+
 class WalletPage extends StatefulWidget {
   const WalletPage({super.key});
 
@@ -59,7 +60,7 @@ class _WalletPageState extends State<WalletPage>
         showCustomModalBottomSheet(
           context: context,
           content: (_walletController.state as WalletStateError).message,
-          buttonText: 'Go to login',
+          buttonText: 'Ir para login',
           isDismissible: false,
           onPressed: () => Navigator.pushNamedAndRemoveUntil(
             context,
@@ -100,7 +101,7 @@ class _WalletPageState extends State<WalletPage>
       child: Stack(
         children: [
           AppHeader(
-            title: 'Wallet',
+            title: 'Carteira',
             onPressed: () {
               locator
                   .get<HomeController>()
@@ -123,7 +124,7 @@ class _WalletPageState extends State<WalletPage>
                 child: Column(
                   children: [
                     Text(
-                      'Total Balance',
+                      'Saldo total',
                       style: AppTextStyles.inputLabelText
                           .apply(color: AppColors.grey),
                     ),
@@ -136,7 +137,7 @@ class _WalletPageState extends State<WalletPage>
                           }
 
                           return Text(
-                            '\$ ${_balanceController.balances.totalBalance.toStringAsFixed(2)}',
+                            'R\$ ${_balanceController.balances.totalBalance.toStringAsFixed(2)}',
                             style: AppTextStyles.mediumText30
                                 .apply(color: AppColors.blackGrey),
                           );
